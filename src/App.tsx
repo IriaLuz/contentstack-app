@@ -1,29 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { client } from './lib/contentstackClient';
+
+const QUERY = `
+  query {
+    all_page {
+      items {
+        title
+      }
+    }
+  }
+`;
 
 function App() {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await client.request(QUERY);
+        console.log('Contentstack Data:', data);
+      } catch (error) {
+        console.error('GraphQL error:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <div className="bg-blue-500 text-white h-screen flex justify-center items-center">
-      <h1 className="text-4xl font-bold">Hello, Tailwind CSS!</h1>
-    </div>
+    <div className="flex items-center justify-center h-screen bg-gray-100 text-gray-900">
+      <h1 className="text-3xl font-bold">Hello from Contentstack 👋</h1>
     </div>
   );
 }
 
 export default App;
+
