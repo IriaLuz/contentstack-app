@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HeroBannerType } from '../utils/types';
+import DOMPurify from 'dompurify';
+
 
 interface Props {
   data: HeroBannerType;
@@ -33,8 +35,13 @@ const HeroBanner: React.FC<Props> = ({ data }) => {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="text-xl mt-s"
         >
-          {data.description}
+          <span
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(data.description),
+            }}
+          />
         </motion.p>
+
         {data.link?.href && (
           <motion.a
             href={data.link.href}
