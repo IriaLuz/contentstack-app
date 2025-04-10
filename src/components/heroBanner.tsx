@@ -10,7 +10,7 @@ const HeroBanner: React.FC<Props> = ({ data }) => {
   const image = data.imageConnection.edges[0]?.node;
 
   return (
-    <section className="relative bg-primary text-white overflow-hidden">
+    <section className="relative bg-primary text-white overflow-hidden rounded-2xl">
       <img
         src={image?.url}
         alt={image?.title}
@@ -27,15 +27,14 @@ const HeroBanner: React.FC<Props> = ({ data }) => {
           {data.title}
         </motion.h1>
 
-        <motion.div
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
           className="text-xl mt-s"
-          dangerouslySetInnerHTML={{ __html: data.description }}
-        />
-
-
+        >
+          {data.description}
+        </motion.p>
         {data.link?.href && (
           <motion.a
             href={data.link.href}
