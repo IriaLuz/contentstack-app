@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { client } from './lib/contentstackClient';
+import HomePage from './components/homePage';
 
 const QUERY = `
   query {
@@ -28,6 +29,7 @@ function App() {
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100 text-gray-900">
       <h1 className="text-3xl font-bold">Hello from Contentstack 👋</h1>
+      <HomePage/>
     </div>
   );
 }
