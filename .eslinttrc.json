@@ -1,0 +1,20 @@
+{
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": ["@typescript-eslint", "prettier"],
+    "rules": {
+      "quotes": ["off"], 
+      "indent": ["off"], 
+      "semi": ["error", "always"], 
+      "prettier/prettier": "error", 
+      "no-unused-vars": "warn",
+      "no-undef": "warn"
+    },
+    "parser": "@typescript-eslint/parser"
+  }
+  
+  
