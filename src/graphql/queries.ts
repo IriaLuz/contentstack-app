@@ -53,7 +53,7 @@ export const PAGE_QUERY = `
                 content_type_uid
               }
                 group {
-                  answer
+                  answer 
                   title
                 }
               }

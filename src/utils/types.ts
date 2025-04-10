@@ -1,3 +1,8 @@
+export interface RichTextNode {
+  type: string;
+  content: any; 
+}
+
 export interface SystemField {
     content_type_uid: string;
   }

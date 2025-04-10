@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AccordionType } from '../utils/types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import DOMPurify from 'dompurify';
 
 interface Props {
     data: AccordionType;
@@ -44,9 +45,14 @@ const Accordion: React.FC<Props> = ({ data }) => {
                                         transition={{ duration: 0.3 }}
                                         className="px-m pb-s text-text text-s"
                                     >
-                                        {item.answer}
+                                        <div
+                                            dangerouslySetInnerHTML={{
+                                                __html: DOMPurify.sanitize(item.answer),
+                                            }}
+                                        />
                                     </motion.div>
                                 )}
+
                             </AnimatePresence>
                         </div>
                     ))}
