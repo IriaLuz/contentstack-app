@@ -10,6 +10,9 @@ export const PAGE_QUERY = `
               ... on Herobanner {
                 title
                 description
+                system {
+                content_type_uid
+              }
                 imageConnection {
                   edges {
                     node {
@@ -25,6 +28,9 @@ export const PAGE_QUERY = `
               }
               ... on Carousel {
                 title
+                system {
+                content_type_uid
+              }
                 slides {
                   caption
                   slideimageConnection {
@@ -43,6 +49,9 @@ export const PAGE_QUERY = `
               }
               ... on Accordion {
                 title
+                system {
+                content_type_uid
+              }
                 group {
                   answer
                   title
